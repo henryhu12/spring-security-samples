@@ -28,11 +28,11 @@ dependencies {
 
 	implementation platform(libs.org.springframework.spring.framework.bom)
 	implementation platform(libs.org.springframework.security.spring.security.bom)
-	implementation platform("org.junit:junit-bom:5.10.0")
+	implementation platform("org.junit:junit-bom:5.10.3")
 
 	implementation "org.springframework.security:spring-security-config"
 
-	testImplementation "org.assertj:assertj-core:3.18.0"
+	testImplementation "org.assertj:assertj-core:3.26.3"
 	testImplementation "org.springframework:spring-test"
 	testImplementation "org.springframework.security:spring-security-test"
 	testImplementation "org.junit.jupiter:junit-jupiter-api"
