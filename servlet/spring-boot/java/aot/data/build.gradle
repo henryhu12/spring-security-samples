@@ -27,6 +27,8 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
+group = "org.example"
+
 hibernate {
   enhancement {
     enableAssociationManagement = true
@@ -36,4 +38,19 @@ hibernate {
 tasks.withType(Test).configureEach {
 	useJUnitPlatform()
 	outputs.upToDateWhen { false }
+}
+
+if (plugins.hasPlugin("io.spring.javaformat")) {
+	compileJava {
+		dependsOn("formatMain")
+	}
+	tasks.checkFormatMain {
+		dependsOn("formatMain")
+	}
+	compileTestJava {
+		dependsOn("formatTest")
+	}
+	tasks.checkFormatTest {
+		dependsOn("formatTest")
+	}
 }
