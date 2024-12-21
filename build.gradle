@@ -1,3 +1,6 @@
+import io.spring.javaformat.gradle.tasks.CheckFormat
+import io.spring.javaformat.gradle.tasks.Format
+
 plugins {
 	id "checkstyle"
 	id "io.spring.javaformat" version "0.0.42"
@@ -49,6 +52,7 @@ allprojects {
 	tasks.matching { it.name == "checkstyleAotTest" }.all { task ->
 		task.enabled = false
 	}
+
 }
 
 if (hasProperty('buildScan')) {
