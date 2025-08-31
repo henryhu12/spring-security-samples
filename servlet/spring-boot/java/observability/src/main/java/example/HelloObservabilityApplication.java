@@ -20,15 +20,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * OAuth2 Resource Application.
+ * Simple application that uses method security.
  *
- * @author Josh Cummings
+ * @author Rob Winch
+ * @since 5.0
  */
 @SpringBootApplication
-public class OAuth2ResourceServerApplication {
+public class HelloObservabilityApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OAuth2ResourceServerApplication.class, args);
+		SpringApplication.run(HelloObservabilityApplication.class, args);
 	}
 
 }

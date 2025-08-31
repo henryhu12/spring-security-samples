@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 the original author or authors.
+ * Copyright 2002-2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,16 +20,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Simple application that uses method security.
+ * OAuth2 Resource Server application.
  *
- * @author Rob Winch
- * @since 5.0
+ * @author Steve Riesenberg
  */
 @SpringBootApplication
-public class HelloMethodApplication {
+public class OAuth2RestClientResourceServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HelloMethodApplication.class, args);
+		SpringApplication.run(OAuth2RestClientResourceServerApplication.class, args);
 	}
 
 }

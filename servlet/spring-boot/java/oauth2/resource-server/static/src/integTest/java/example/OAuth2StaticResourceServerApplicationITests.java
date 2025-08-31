@@ -34,18 +34,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Integration tests for {@link OAuth2ResourceServerApplication}.
+ * Integration tests for {@link OAuth2StaticResourceServerApplication}.
  *
  * @author Josh Cummings
  */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-public class OAuth2ResourceServerApplicationITests {
+public class OAuth2StaticResourceServerApplicationITests {
 
-	String noScopesToken = "00ed5855-1869-47a0-b0c9-0f3ce520aee7";
+	String noScopesToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWJqZWN0IiwiaWF0IjoxNTE2MjM5MDIyfQ.eB2c9xtg5wcCZxZ-o-sH4Mx1JGkqAZwH4_WS0UcDbj_nen0NPBj6CqOEPhr_LZDagb4mM6HoAPJywWWG8b_Ylnn5r2gWDzib2mb0kxIuAjnvVBrpzusw4ItTVvP_srv2DrwcisKYiKqU5X_3ka7MSVvKtswdLY3RXeCJ_S2W9go";
 
-	String messageReadToken = "b43d1500-c405-4dc9-b9c9-6cfd966c34c9";
+	String messageReadToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJzdWJqZWN0IiwiaWF0IjoxNTE2MjM5MDIyLCJzY29wZSI6Im1lc3NhZ2U6cmVhZCJ9.bsRCpUEaiWnzX4OqNxTBqwUD4vxxtPp-CHKTw7XcrglrvZ2lvYXaiZZbCp-hcPhuzMEzEAFuH6s4GZZOWVIX-wT47GdTz9cfA-Z4QPjS2RxePKphFXgBI3jHEpQo94Qya2fJdV4LvgBmA1uM_RTnYY1UbmeYuHKnXrZoGyV8QQQ";
 
 	@Autowired
 	MockMvc mvc;
