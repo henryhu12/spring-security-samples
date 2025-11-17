@@ -31,9 +31,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.test.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -73,7 +73,7 @@ public class SamlExtensionFederationApplicationITests {
 	}
 
 	private void performLogin() throws Exception {
-		HtmlPage login = this.webClient.getPage("/");
+		HtmlPage login = this.webClient.getPage("http://localhost:" + this.port);
 		login.getAnchors().get(0).click();
 		this.webClient.waitForBackgroundJavaScript(10000);
 		HtmlForm form = findForm(login);

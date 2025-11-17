@@ -39,8 +39,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.htmlunit.UriBuilderFactoryWebClient;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -66,6 +67,8 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2UserAuthority;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.htmlunit.MockMvcWebClientBuilder;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -346,6 +349,14 @@ public class OAuth2LoginApplicationTests {
 	@Configuration
 	@EnableWebSecurity
 	public static class SecurityTestConfig {
+
+		@Bean
+		static MockMvcWebClientBuilder webClientBuilder(MockMvc mockMvc) {
+
+			DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory("http://localhost:8080");
+			UriBuilderFactoryWebClient delegate = new UriBuilderFactoryWebClient(factory);
+			return MockMvcWebClientBuilder.mockMvcSetup(mockMvc).withDelegate(delegate);
+		}
 
 		@Bean
 		public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

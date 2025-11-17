@@ -19,7 +19,7 @@ package example;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-import org.testcontainers.containers.DockerComposeContainer;
+import org.testcontainers.containers.ComposeContainer;
 
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.context.TestContext;
@@ -27,14 +27,14 @@ import org.springframework.test.context.support.AbstractTestExecutionListener;
 
 public class IdentityProviderTestExecutionListener extends AbstractTestExecutionListener {
 
-	private DockerComposeContainer<?> composed;
+	private ComposeContainer composed;
 
 	@Override
 	public void beforeTestClass(TestContext testContext) throws Exception {
 		String port = Integer.toString(getRandomPort());
 		System.setProperty("SERVER_PORT", port);
 		System.setProperty("server.port", port);
-		this.composed = new DockerComposeContainer<>("saml2", new ClassPathResource("docker/compose.yml").getFile())
+		this.composed = new ComposeContainer("saml2", new ClassPathResource("docker/compose.yml").getFile())
 			.withEnv("SERVER_PORT", port);
 		this.composed.start();
 	}
